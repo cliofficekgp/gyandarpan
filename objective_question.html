@@ -1,0 +1,81 @@
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf8">
+		<meta charset="utf-8">
+		<meta name="generator" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  </style>
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10">
+			<div class="panel-body">
+				<div class="panel-group" id="accordion">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="question">
+
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/objective_question.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var txt='';
+	var j=0;
+	var questions=$(ObjQuestion).filter(function (k,v){return v.Chapter_Id==localStorage.getItem('Chapter_id');});
+	$.each(questions,function(k,v){
+		txt+='<div class="panel panel-default">'+
+						'<div class="panel-heading">'+
+							'<h4 class="panel-title">'+
+								'<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne'+j+'" onclick="showoptions('+v.Quest_Id+','+j+')" aria-expanded="false" class="collapsed">'+v.Question+'</a>'+
+							'</h4>'+
+						'</div>'+
+						'<div id="collapseOne'+j+'" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">'+
+							'<div class="panel-body" id="panelbody'+j+'">'+
+								
+							'</div>'+
+						'</div>'+
+					'</div>';
+					j++;
+	});
+	$("#accordion").html(txt);
+});
+function showoptions(refid,divid)
+	{
+		currentdiv=refid;
+		var a=$(Options).filter(function (k,v){return v.Quest_Id==refid;});
+		var txt='<div class="row" id="'+refid+'">';
+		$.each(a,function(k,v){
+			txt+="<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6' id='Opt1'><div class='radio'> <label ><input type='radio' name='rdo' onclick='checkans("+1+")'>"+v.Opt1+"</label> </div></div>"+
+			"<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'id='Opt2'><div class='radio'> <label><input type='radio' name='rdo' onclick='checkans("+2+")'>"+v.Opt2+"</label> </div></div>"+
+			"<div class='col-lg-6 col-md-6 col-sm-6 col-xs-6' id='Opt3'><div class='radio' onclick='checkans("+3+")'> <label><input type='radio' name='rdo'>"+v.Opt3+"</label> </div></div>";
+			correctans=v.Ans;
+			txt+="</div>";
+			});
+			$("#panelbody"+divid).html(txt);
+	}
+	function checkans(divid)
+	{
+		//$("#"+currentdiv+" "+"#Opt1,#Opt2,#Opt3,#Opt4").css("backgroundColor",'white');
+		if("Opt"+divid==correctans)
+		{
+			$("#"+currentdiv+" "+"#Opt"+divid).css("backgroundColor",'green');
+		}
+		else
+		{
+			//$("#"+currentdiv+" "+"#"+correctans).css("backgroundColor",'green');
+			$("#"+currentdiv+" "+"#Opt"+divid).css("backgroundColor",'red');
+		}
+	}
+
+</script>
+</body>
+</html>

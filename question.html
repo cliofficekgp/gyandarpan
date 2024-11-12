@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <meta charset="utf-8">
+    <meta name="generator" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container-fluid {
+            background-color:#1a154c;
+        }
+        .index_page{
+            text-align: center;
+        }
+        .navbar{
+            border-color: #1a154c;
+            color: white;
+        }
+        .list-group-item{
+            background-color:#3a3287;
+        }
+        .navbar-default .navbar-brand {
+            color: white;
+        }
+        .options_text{
+            color:black;
+        }
+        .correct{
+            background-color: green;
+        }
+        .wrong{
+            background-color: red;
+        }
+        .list-group-item { cursor: pointer; }
+		a
+		{
+		text-decoration:none;
+		}
+    </style>
+
+</head>
+<body style="background-color:#3a3287; color:white;">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div class="row index_page" style="margin-top:40px;">
+        <p style="font-size:20px">Questions List / प्रश्न सूची</p>
+    </div>
+    <div class="row question">
+        <div class="panel-group" id="accordion">
+        </div>
+    </div>
+    <div class="row">
+        <ul class="list-group" style="background-color:#3a3287;">
+
+        </ul>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var fileref=document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+
+        if(localStorage.getItem("topic")!=null)
+        {
+            var filename=localStorage.getItem("topic");
+            loadScript("js/"+filename+".js", function () {
+                createhtml();
+            });
+        }
+    });
+
+    function createhtml()
+    {
+        var topic_id=localStorage.getItem("topic_id");
+        if(localStorage.getItem("question_type")=="objective")
+        {
+            var str="";
+            for(i=0;i<objective_question[topic_id].length;i++)
+            {
+                str+='<div class="panel panel-default">'+
+                        '<div class="panel-heading">'+
+                        '<h4 class="panel-title">'+
+                        '<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'">'+objective_question[topic_id][i]+'</a>'+
+                        '</h4>'+
+                        '</div>'+
+                        '<div id="collapse'+i+'" class="panel-collapse collapse">'+
+                        '<div class="panel-body">'+
+                        '<div class="row">';
+                for(j=0;j<objectiveoptions[topic_id][i].length;j++)
+                {
+                    str+='<a href="#" topic_id="'+topic_id+'" question_id="'+i+'" class="options"><div class="col-lg-3 col-md-3 options_text">'+objectiveoptions[topic_id][i][j]+'</div></a>';
+                }
+
+                str+='</div>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+            }
+            $("#accordion").html(str);
+        }
+        else
+        {
+            var str="";
+            for(i=0;i<subjective_question[topic_id].length;i++)
+            {
+                str+='<li class="list-group-item">'+subjective_question[topic_id][i]+'</li>';
+            }
+            $(".list-group").html(str);
+        }
+    }
+
+    function loadScript(url, callback) {
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+
+        if (script.readyState) { //IE
+            script.onreadystatechange = function () {
+                if (script.readyState == "loaded" || script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { //Others
+            script.onload = function () {
+                callback();
+            };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    $(document).on("click",".options",function (e) {
+        e.preventDefault();
+        var topic_id=$(this).attr("topic_id");
+        var question_id=$(this).attr("question_id");
+        var correct_ans=(objectiveAnswer[topic_id][question_id])-1;
+        var option_index=$(this).index();
+        if(option_index==correct_ans)
+        {
+            $(this).find('div').addClass("correct");
+        }
+        else
+            $(this).find('div').addClass("wrong");
+    });
+    $(document).on("click",".list-group-item",function () {
+       var question_id=$(this).index();
+        localStorage.setItem("question_id",question_id);
+        window.location="subjective_question.html";
+    });
+
+</script>
+</body>
+</html>

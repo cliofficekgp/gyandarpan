@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+<div id="Chapter">
+
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/ochapter.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var txt='';
+	var chapter_name=$(OChapter).filter(function (k,v){return v.Division_Id==localStorage.getItem('division_id');});
+	$.each(chapter_name,function(k,v){
+		txt+="<a href='#' class='chapters' id='"+v.Chapter_Id+"'>"+v.Chapter_Name+"</a><br/>";
+	});
+	$("#Chapter").html(txt);
+	$(".chapters").click(function(){
+		localStorage.setItem('Chapter_id',$(this).attr('id'));
+		window.location.href='objective_question.html';
+	});
+});
+
+</script>
+</body>
+</html>

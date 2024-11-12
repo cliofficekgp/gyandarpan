@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta charset="utf-8">
+  <meta name="generator" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    body{
+      margin: 0px;
+      padding: 0px;
+    }
+    .container-fluid {
+      background-color:#1a154c;
+    }
+    .index_page{
+      text-align: center;
+    }
+    .navbar{
+      border-color: #1a154c;
+      color: white;
+    }
+    .navbar-default .navbar-brand {
+      color: white;
+    }
+    .maintenance_link
+    {
+      color: #ffffff;
+    }
+    .maintenance_link:hover{
+      color: #ffffff;
+      text-decoration: none;
+
+    }
+  </style>
+
+</head>
+<body style="background-color:#3a3287; color:white;">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+
+  <div class="row index_page" style="margin-top:40px;">
+    <p style="font-size:20px">विकल्प का चुनाव करें।</p>
+  </div>
+  <div class="row index_page" style="margin-top:40px;">
+    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="swr_h">एस. डब्लू. आर.</button>
+  </div>
+  <div class="row index_page" style="margin-top:40px;">
+    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="conventional_h">पारम्परिक</button>
+  </div>
+  <div class="row index_page" style="margin-top:40px;">
+    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="three_phase_h">थ्री फेज</button>
+  </div>
+  <div class="row index_page" style="margin-top:40px;">
+    <a href="maintenance_h.html" class="maintenance_link"><button style="padding:10px; width:240px;background-color:red;" class="">अनुरक्षण</button></a>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".btn_topic").click(function(){
+      var topic=$(this).attr("id");
+      localStorage.setItem("topic",topic);
+      window.location="QuestionType_h.html";
+    });
+  });
+</script>
+
+
+</body>
+</html>
