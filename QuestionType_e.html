@@ -16,37 +16,28 @@
   .index_page{
     text-align: center;
   }
-  .navbar{
-    border-color: #1a154c;
-    color: white;
-  }
-  .navbar-default .navbar-brand {
-      color: white;
-  }
+  
   </style>
 
 </head>
 <body style="background-color:white; color:#3a3287;">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
-    </div> 
-  </div>
-</nav>
+
+<div id="includedNav"></div>
+
 <div class="container">
 
   <div class="row index_page" style="margin-top:40px;">
     <p style="font-size:20px">Select Question Type</p>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <button style="padding:10px; width:240px;background-color:red;" class="btn_type" id="objective">Objective</button>
+    <button style="padding:10px; width:240px;" class="btn_type btn btn-primary" id="objective">Objective</button>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <button style="padding:10px; width:240px;background-color:red;" class="btn_type" id="subjective">Descriptive</button>
+    <button style="padding:10px; width:240px;" class="btn_type btn btn-primary" id="subjective">Descriptive</button>
   </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common_script.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(document).ready(function(){
     $(".btn_type").click(function(){

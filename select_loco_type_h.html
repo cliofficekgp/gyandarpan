@@ -36,32 +36,28 @@
 
 </head>
 <body style="background-color:white; color:#3a3287;">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
-    </div>
-  </div>
-</nav>
+
+<div id="includedNav"></div>
 <div class="container">
 
   <div class="row index_page" style="margin-top:40px;">
-    <p style="font-size:20px">विकल्प का चुनाव करें।</p>
+    <h3>विकल्प का चुनाव करें।</h3>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="swr_h">एस. डब्लू. आर.</button>
+    <button style="padding:10px; width:240px;" class="btn_topic btn btn-primary" id="swr_h">एस. डब्लू. आर.</button>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="conventional_h">पारम्परिक</button>
+    <button style="padding:10px; width:240px;" class="btn_topic btn btn-primary" id="conventional_h">पारम्परिक</button>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="three_phase_h">थ्री फेज</button>
+    <button style="padding:10px; width:240px;" class="btn_topic btn btn-primary" id="three_phase_h">थ्री फेज</button>
   </div>
   <div class="row index_page" style="margin-top:40px;">
-    <a href="maintenance_h.html" class="maintenance_link"><button style="padding:10px; width:240px;background-color:red;" class="">अनुरक्षण</button></a>
+    <a href="maintenance_h.html" class="maintenance_link"><button style="padding:10px; width:240px;" class=" btn btn-primary">अनुरक्षण</button></a>
   </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common_script.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
     $(".btn_topic").click(function(){

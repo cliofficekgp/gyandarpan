@@ -16,10 +16,7 @@
         .index_page{
             text-align: center;
         }
-        .navbar{
-            border-color: #1a154c;
-            color: white;
-        }
+       
         .list-group-item{
             background-color:white;
         }
@@ -28,33 +25,50 @@
         }
         .options_text{
             color:black;
+            border: 1px solid rgb(123, 124, 123);
+            border-radius: 3px;
+            margin: 5px;
         }
         .correct{
-            background-color: green;
+            background-color: rgb(121 195 121);
+            border: 1px solid green;
+            border-radius: 3px;
         }
         .wrong{
-            background-color: red;
+            background-color: #ff7a7a;
+            border: 1px solid red;
+            border-radius: 3px;
         }
         .list-group-item { cursor: pointer; }
-		a
-		{
-		text-decoration:none;
+		a{
+		    text-decoration:none;
 		}
+        .accordian-box:hover {
+            background-color: #f7f2b0;
+            cursor: pointer;
+        }
+        .options_text:not(.correct,.wrong):hover {
+            background-color: #f7f2b0;
+            cursor: pointer;
+        }
+        .row {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+        @media (min-width : 1200px) {
+            .col-lg-4 {
+                width: 30% !important;
+            }
+        }        
     </style>
 
 </head>
 <body style="background-color:white; color:#3a3287;">
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
-        </div>
-    </div>
-</nav>
+<div id="includedNav"></div>
 <div class="container">
 
-    <div class="row index_page" style="margin-top:40px;">
-        <p style="font-size:20px">Questions List / प्रश्न सूची</p>
+    <div class="row index_page" style="margin-top:10px;">
+        <h3>Questions List / प्रश्न सूची</h3>
     </div>
     <div class="row question">
         <div class="panel-group" id="accordion">
@@ -70,6 +84,7 @@
 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/common_script.js" ></script>
 <script type="text/javascript">
     $(document).ready(function(){
         var fileref=document.createElement('script');
@@ -93,9 +108,9 @@
             for(i=0;i<objective_question[topic_id].length;i++)
             {
                 str+='<div class="panel panel-default">'+
-                        '<div class="panel-heading">'+
+                        '<div class="panel-heading accordian-box">'+
                         '<h4 class="panel-title">'+
-                        '<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'">'+objective_question[topic_id][i]+'</a>'+
+                        '<a data-toggle="collapse" style="text-decoration:none" data-parent="#accordion" href="#collapse'+i+'">'+objective_question[topic_id][i]+'</a>'+
                         '</h4>'+
                         '</div>'+
                         '<div id="collapse'+i+'" class="panel-collapse collapse">'+
@@ -103,19 +118,16 @@
                         '<div class="row">';
                 for(j=0;j<objectiveoptions[topic_id][i].length;j++)
                 {
-                    str+='<a href="#" topic_id="'+topic_id+'" question_id="'+i+'" class="options"><div class="col-lg-3 col-md-3 options_text">'+objectiveoptions[topic_id][i][j]+'</div></a>';
+                    str+='<a href="#" style="text-decoration:none"  topic_id="'+topic_id+'" question_id="'+i+'" class="options "><div class="col-lg-4 col-md-4 options_text">'+objectiveoptions[topic_id][i][j]+'</div></a>';
                 }
 
-                str+='</div>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
+                str+='</div></div></div></div>';
             }
             $("#accordion").html(str);
         }
         else
         {
-            var str="";
+            var str="";           
             for(i=0;i<subjective_question[topic_id].length;i++)
             {
                 str+='<li class="list-group-item">'+subjective_question[topic_id][i]+'</li>';

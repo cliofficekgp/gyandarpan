@@ -27,21 +27,19 @@
             color: white;
         }
         .list-group-item { cursor: pointer; }
+        .list-group-item:hover {
+            background-color: #f7f2b0;
+            cursor: pointer;
+        }
     </style>
 
 </head>
 <body style="background-color:white; color:#3a3287;">
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
-        </div>
-    </div>
-</nav>
+<div id="includedNav"></div>
 <div class="container">
 
     <div class="row index_page" style="margin-top:40px;">
-        <p style="font-size:20px">Topic List / विषय सूची</p>
+        <h3 style="font-size:20px">Topic List / विषय सूची</h3>
     </div>
     <div class="row">
 
@@ -52,6 +50,7 @@
 
 </ul>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common_script.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         var fileref=document.createElement('script');

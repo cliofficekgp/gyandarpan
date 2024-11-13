@@ -35,32 +35,31 @@
 
 </head>
 <body style="background-color:white; color:#3a3287;">
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Gyan Drapan / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A way of learning...</a>
-        </div>
-    </div>
-</nav>
+<!-- common nav bar -->
+<div id="includedNav"></div>
+
 <div class="container">
 
     <div class="row index_page" style="margin-top:40px;">
-        <p style="font-size:20px">Select Option</p>
+        <h3 class="title">SELECT OPTION</h3>
     </div>
     <div class="row index_page" style="margin-top:40px;">
-        <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="swr_e">SWR</button>
+        <button style="padding:10px; width:240px;" class="btn btn-primary btn_topic" id="swr_e">SWR</button>
     </div>
     <div class="row index_page" style="margin-top:40px;">
-        <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="conventional_e">Conventional</button>
+        <button style="padding:10px; width:240px;" class="btn btn-primary btn_topic" id="conventional_e">Conventional</button>
     </div>
     <div class="row index_page" style="margin-top:40px;">
-        <button style="padding:10px; width:240px;background-color:red;" class="btn_topic" id="three_phase_e">Three Phase</button>
+        <button style="padding:10px; width:240px;" class="btn btn-primary btn_topic" id="three_phase_e">Three Phase</button>
     </div>
     <div class="row index_page" style="margin-top:40px;">
-        <a href="maintenance_e.html" class="maintenance_link"><button style="padding:10px; width:240px;background-color:red;" class="">Maintenance</button></a>
+        <a href="maintenance_e.html" class="maintenance_link">
+            <button style="padding:10px; width:240px;" class="btn btn-primary">Maintenance</button>
+        </a>
     </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common_script.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $(".btn_topic").click(function(){
