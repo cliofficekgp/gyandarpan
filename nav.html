@@ -1,32 +1,102 @@
 <style>
-  .navbar{
-    border-color: #1a154c;
-    color: white;
-  }
-  .navbar-default .navbar-brand {
+    .navbar {
+      border-color: #1a154c;
+      background-color: #1a154c;
       color: white;
-   }
-   .navbar-brand {
-    height: 65px;
-   }
-   .navbar-header,.navbar-brand {
-    width: 100%;
-   }
-</style>
-<nav class="navbar navbar-default">
+    }
+
+    .navbar-default .navbar-brand {
+      color: white;
+      text-decoration: none;
+      cursor: default; /* Prevent pointer cursor */
+    }
+
+    .navbar-brand {
+      height: auto; /* Adjust height for responsiveness */
+      padding: 10px;
+      transition: none; /* Disable fading effects */
+    }
+
+    .navbar-brand:hover, .navbar-brand:focus {
+      color: white; /* No hover effect */
+      text-decoration: none; /* No underline */
+      background-color: transparent; /* No background change */
+    }
+
+    .navbar-header, .navbar-brand {
+      width: 100%;
+    }
+
+    .navbar-brand-content {
+      display: flex; /* Use flexbox for alignment */
+      align-items: center; /* Vertically align items */
+      justify-content: center; /* Center the content horizontally */
+      gap: 15px; /* Add spacing between elements */
+    }
+
+    .learning-text {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      position: absolute;
+      right: 15px; /* Position the button to the far right */
+      top: 15px; /* Align it vertically */
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    /* Responsive Design: For small screens */
+    @media (max-width: 575px) {
+      .navbar-brand-content {
+        display: block; /* Stack items vertically */
+        text-align: center;
+      }
+
+      .learning-text {
+        margin-top: 5px; /* Add spacing between rows */
+      }
+
+      .back-btn {
+        position: static;
+        float: none;
+        width: auto;
+        padding: 3px 6px; /* Smaller button for small screens */
+        font-size: 12px; /* Adjust font size */
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+<body>
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="select_language.html">
-            <div class="row">
-                <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">GYAN DRAPAN / ज्ञान दर्पण</div>
-                <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">A WAY OF LEARNING</div>
-                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-                    <button class="btn btn-info hBack" type="button" style="float:right">◄  <i class="fa fa-arrow-left"></i>Back</button>
-                </div>
-            </div>
-            
-           <!--  GYAN DRAPAN / ज्ञान दर्पण&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A WAY OF LEARNING ...-->
-            </a>
-      </div> 
+        <a class="navbar-brand">
+          <div class="navbar-brand-content">
+            <!-- Heading -->
+            <div>GYAN DRAPAN / ज्ञान दर्पण</div>
+            <!-- Subheading -->
+            <div class="learning-text">A WAY OF LEARNING</div>
+          </div>
+        </a>
+        <!-- Back Button -->
+        <button 
+          class="btn btn-info back-btn" 
+          type="button" 
+          onclick="goBack()">◄ <i class="fa fa-arrow-left"></i> Back
+        </button>
+      </div>
     </div>
-</nav>
+  </nav>
+
+  <!-- JavaScript -->
+  <script>
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+
