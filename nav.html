@@ -42,7 +42,7 @@
     .back-btn {
       position: absolute;
       right: 15px; /* Position the button to the far right */
-      top: 15px; /* Align it vertically */
+      top: 4px; /* Align it vertically */
       padding: 5px 10px;
       font-size: 14px;
     }
@@ -64,12 +64,11 @@
         width: auto;
         padding: 3px 6px; /* Smaller button for small screens */
         font-size: 12px; /* Adjust font size */
-        margin-top: 10px;
+        margin-top: 4px;
       }
     }
   </style>
 
-<body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -79,24 +78,15 @@
             <div>GYAN DRAPAN / ज्ञान दर्पण</div>
             <!-- Subheading -->
             <div class="learning-text">A WAY OF LEARNING</div>
+            <!-- Back Button -->
+            <button 
+            class="btn btn-info back-btn" 
+            onclick="goBack()"
+            type="button">◄ Back
+            </button>
           </div>
         </a>
-        <!-- Back Button -->
-        <button 
-          class="btn btn-info back-btn" 
-          type="button" 
-          onclick="goBack()">◄ <i class="fa fa-arrow-left"></i> Back
-        </button>
+        
       </div>
     </div>
   </nav>
-
-  <!-- JavaScript -->
-  <script>
-    // Function to go back to the previous page
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-</body>
-
